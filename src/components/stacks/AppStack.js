@@ -1,8 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import IndexScreen from '../screens/IndexScreen'
-import ShowScreen from '../screens/ShowScreen'
-import WebScreen from '../screens/WebScreen'
+import Home from '../screens/HomeScreen';
+import MoreDetails from "../listItems/MoreDetails"
 
 const Stack = createNativeStackNavigator()
 
@@ -10,29 +9,28 @@ const AppStack = () => (
   <NavigationContainer>
     <Stack.Navigator>
       <Stack.Screen
-        name='Index'
-        component={IndexScreen}
+        name="Home"
+        component={Home}
         options={{
-          title: 'Recipe App',
+          title: 'Movies App',
           headerStyle: {
-            backgroundColor: '#2c3e50'
+            backgroundColor: '#3FBDD2'
+
           },
           headerTitleStyle: {
-            color: '#fff'
-          }
+            color: '#fff',
+          },
+          headerTitleAlign: 'center',
         }}
       />
-      <Stack.Screen name='Show' component={ShowScreen} />
       <Stack.Screen
-        name='Web'
-        component={WebScreen}
-        options={({ route }) => ({
-          title: route.params.label,
-          headerBackTitle: 'Back to Show'
-        })}
+        name='Back To List'
+        component={MoreDetails}
       />
+
     </Stack.Navigator>
   </NavigationContainer>
+
 )
 
 export default AppStack

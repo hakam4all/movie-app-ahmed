@@ -1,53 +1,35 @@
-import {
-  Button,
-  ButtonIcon,
-  ButtonText,
-  FormControl,
-  FormControlLabelText,
-  HStack,
-  Icon,
-  Input,
-  InputField,
-  InputIcon,
-  SearchIcon,
-  VStack
-} from '@gluestack-ui/themed'
-import { StyleSheet } from 'react-native'
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { VStack } from '@gluestack-ui/themed';
+import { Picker } from '@react-native-picker/picker';
 
 const Form = props => {
-  const { onInputChange, onSubmit } = props
+  const { onDropdownChange } = props;
 
   return (
-    <VStack space={2} width='100%' p={5} my={10}>
-      <FormControl isRequired>
-        <FormControl.Label fontSize='sm'>
-          <FormControlLabelText>Ingredient Search</FormControlLabelText>
-        </FormControl.Label>
-      </FormControl>
-      <HStack width='100%' space={2}>
-        <Input style={styles.inputStyles} mr={10} px={5}>
-          <InputIcon>
-            <Icon as={SearchIcon} size='sm' />
-          </InputIcon>
-          <InputField
-            onChangeText={value => {
-              onInputChange(value)
-            }}
-            placeholder='Enter an ingredient...'
-          />
-        </Input>
-
-        <Button onPress={onSubmit}>
-          <ButtonIcon as={SearchIcon} mr='$2' />
-          <ButtonText>Search</ButtonText>
-        </Button>
-      </HStack>
+    <VStack space={2} width="100%" p={5} my={10}>
+      <Picker
+        style={styles.pickerStyle}
+        onValueChange={(itemValue, itemIndex) => onDropdownChange(itemValue)}
+      >
+        <Picker.Item label="Now Playing" value="now_playing" />
+        <Picker.Item label="Popular" value="popular" />
+        <Picker.Item label="Top Rated" value="top_rated" />
+        <Picker.Item label="Upcoming" value="upcoming" />
+      </Picker>
     </VStack>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
-  inputStyles: { flex: 1, alignItems: 'center' }
-})
+  pickerStyle: {
+    width: '60%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignContent: 'center',
+    alignSelf: 'center',
 
-export default Form
+  },
+});
+
+export default Form;
