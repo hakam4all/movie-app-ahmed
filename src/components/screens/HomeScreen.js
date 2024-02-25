@@ -4,7 +4,7 @@ import MovieListAndSorting from '../lists/MovieList';
 import TvListAndSorting from '../lists/TvShowListAndSorting';
 import SearchScreen from './SearchScreen';
 
-const Home = ({ navigation }) => {
+const HomeScreen = ({ navigation }) => {
   const [index, setIndex] = useState(0);
   const [routes] = useState([
     { key: 'movies', title: 'Movies' },
@@ -37,4 +37,4 @@ const Home = ({ navigation }) => {
   );
 };
 
-export default Home;
+export default HomeScreen;

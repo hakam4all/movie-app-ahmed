@@ -11,7 +11,7 @@ npm install react-native@latest
 npm install node-fetch
 
 
-566a55aed1a76b4fc73f4c62a29b5079
+My API_KEY: 566a55aed1a76b4fc73f4c62a29b5079
 
 npm install @react-navigation/native @react-navigation/material-top-tabs react-native-tab-view
 npx expo install react-native-gesture-handler react-native-reanimated
